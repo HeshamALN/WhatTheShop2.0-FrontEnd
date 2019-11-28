@@ -11,12 +11,14 @@ class InfoStore {
     {
       id: 1,
       name: "هوشة",
+      description: "انا و صاحبي تهاوشنا في البر ",
       type: " ديوانية #قهوه #يمعةـرفيجات#",
       img: hosha
     },
     {
       id: 2,
       name: "نصب علي!!",
+      description: "",
       type: " ديوانية #قهوه #يمعةـرفيجات#",
       img: na9b
     },
@@ -24,6 +26,7 @@ class InfoStore {
     {
       id: 3,
       name: "مديري يتحفرلي!!!",
+      description: "",
       type: " ديوانية #دوام #قهوه #يمعةـرفيجات#",
       img: modery
     }
