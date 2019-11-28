@@ -2,10 +2,11 @@ import { createStackNavigator } from "react-navigation-stack";
 
 // Components
 import LolScreen from "../components/Lol";
+import ListPage from "../components/ListPage";
 
 const LolStack = createStackNavigator(
   {
-    Lol: LolScreen
+    Lol: ListPage
   },
   {
     defaultNavigationOptions: {
