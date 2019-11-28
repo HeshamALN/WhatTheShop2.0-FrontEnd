@@ -4,7 +4,7 @@ import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000"
+  baseURL: "http://192.168.100.154:80"
 });
 
 class AuthStore {
@@ -15,7 +15,7 @@ class AuthStore {
       // Save token to localStorage
       await AsyncStorage.setItem("myToken", token);
       // Set token to Auth header
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
       // Set current user
       this.user = jwt_decode(token);
@@ -27,33 +27,24 @@ class AuthStore {
     console.log(this.user);
   };
 
-  signup = async (userData, navigation) => {
+  login = async userData => {
     try {
-      const res = await instance.post("/api/register/", userData);
-      console.log("1");
-
+      const res = await instance.post("/api/login/", userData);
       const user = res.data;
-      await this.setUser(user.token);
-      console.log("something else:");
-
-      navigation.navigate("Lol");
+      await this.setUser(user.access);
     } catch (err) {
-      console.log(err.response.data);
+      console.error(err);
+      alert("Invalid login credentials.");
     }
   };
 
-  login = async (userData, navigation) => {
+  signup = async userData => {
     try {
-      console.log("user data", userData);
-      const res = await instance.post("/api/login/", userData);
-      console.log("2");
+      const res = await instance.post("/api/register/", userData);
       const user = res.data;
-      this.setUser(user.access);
-      console.log("yeah here:");
-
-      navigation.navigate("Lol");
+      await this.setUser(user.access);
     } catch (err) {
-      console.log("something went wrong logging in");
+      console.error(err);
     }
   };
 
