@@ -34,7 +34,10 @@ class Signup extends Component {
         />
         <TouchableOpacity
           style={styles.authButton}
-          onPress={() => authStore.signup(this.state)}
+          onPress={() => {
+            authStore.signup(this.state);
+            this.props.navigation.navigate("LolScreen");
+          }}
         >
           <Text style={styles.authButtonText}>Sign up</Text>
         </TouchableOpacity>
