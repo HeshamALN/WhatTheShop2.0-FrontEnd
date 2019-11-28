@@ -7,7 +7,7 @@ import { observer } from "mobx-react";
 const CartButton = ({ navigation }) => {
   return (
     <Text>
-      <Icon name="shoppingcart" type="AntDesign" />
+      <Icon name="cart" type="EvilIcons" />
     </Text>
   );
 };

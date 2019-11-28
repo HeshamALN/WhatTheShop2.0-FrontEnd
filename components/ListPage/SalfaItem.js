@@ -10,7 +10,7 @@ import styles from "./styles";
 
 const SalfaItem = ({ salfa, navigation }) => {
   const handlePress = () =>
-    navigation.navigate("Profile", {
+    navigation.navigate("DetailScreen", {
       salfaID: salfa.id,
       salfaName: salfa.name
     });
@@ -22,7 +22,7 @@ const SalfaItem = ({ salfa, navigation }) => {
         <Card style={styles.transparent}>
           <CardItem style={styles.transparent}>
             <Left>
-              <Text style={styles.text}>{salfa.name} </Text>
+              <Text style={styles.text}>{salfa.name + "\n"} </Text>
               <Text style={styles.text2}>{salfa.type}</Text>
             </Left>
           </CardItem>
