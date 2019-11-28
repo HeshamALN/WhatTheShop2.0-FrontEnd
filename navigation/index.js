@@ -1,6 +1,7 @@
 import { createAppContainer } from "react-navigation";
-import BottomTab from "./BottomTab";
+import LolStack from "./LolStack";
+import AuthNav from "./AuthNav";
 
-const AppContainer = createAppContainer(BottomTab);
+const AppContainer = createAppContainer(LolStack);
 
 export default AppContainer;

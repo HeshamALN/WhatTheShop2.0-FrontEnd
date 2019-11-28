@@ -8,19 +8,17 @@ import styles from "./styles";
 
 import authStore from "../../stores/authStore";
 
-class Login extends Component {
+class Signup extends Component {
   state = {
     username: "",
     password: ""
   };
 
-  componentDidMount() {
-    if (authStore.user) this.props.navigation.navigate("LolScreen");
-  }
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.authContainer}>
-        <Text style={styles.authTitle}>Login</Text>
+        <Text style={styles.authTitle}>Signup</Text>
         <TextInput
           style={styles.authTextInput}
           placeholder="Username"
@@ -30,32 +28,32 @@ class Login extends Component {
         <TextInput
           style={styles.authTextInput}
           placeholder="Password"
-          placeholderTextColor="#A6AEC1"
           onChangeText={password => this.setState({ password })}
+          placeholderTextColor="#A6AEC1"
           secureTextEntry={true}
         />
         <TouchableOpacity
           style={styles.authButton}
           onPress={() => {
-            authStore.login(this.state);
+            authStore.signup(this.state);
             this.props.navigation.navigate("LolScreen");
           }}
         >
-          <Text style={styles.authButtonText}>Log in</Text>
+          <Text style={styles.authButtonText}>Sign up</Text>
         </TouchableOpacity>
         <Text
           style={styles.authOther}
-          onPress={() => this.props.navigation.navigate("Signup")}
+          onPress={() => this.props.navigation.navigate("Login")}
         >
-          Click here to register!
+          Click here to log in!
         </Text>
       </View>
     );
   }
 }
 
-Login.navigationOptions = {
-  title: "بياع حجي "
+Signup.navigationOptions = {
+  title: "Signup"
 };
 
-export default Login;
+export default Signup;
