@@ -9,11 +9,12 @@ const LolStack = createStackNavigator(
   {
     Login: Login,
     Signup: Signup,
-    Lol: LolScreen
+    LolScreen: LolScreen
   },
   {
+    // initialRouteName: "LolScreen",
     defaultNavigationOptions: {
-      title: "Login"
+      title: "LolScreen"
     }
   }
 );
